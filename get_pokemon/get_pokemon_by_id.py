@@ -1,11 +1,11 @@
 import requests
 from pprint import pprint
 
-from get_pokemon.validators import is_valid_id
+from helpers.validators import is_valid_int
 
 pokemon_number = input("What is the Pokemon's ID? ")
 
-if is_valid_id(pokemon_number):
+if is_valid_int(pokemon_number):
     url = f"https://pokeapi.co/api/v2/pokemon/{pokemon_number}"
     response = requests.get(url)
 
