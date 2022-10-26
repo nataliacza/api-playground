@@ -1,2 +1,3 @@
-# poke-api-playground
-Playing with pokemon API requests 
+# Poke API Playground
+
+Playing with pokemon API requests - official page https://pokeapi.co/.
