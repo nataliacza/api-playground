@@ -1,3 +1,5 @@
-# Poke API Playground
+# API Playground
 
-Playing with pokemon API requests - official page https://pokeapi.co/.
+Playing with API requests:
+- pokemon page https://pokeapi.co/.
+- JSON Placeholder https://jsonplaceholder.typicode.com/
