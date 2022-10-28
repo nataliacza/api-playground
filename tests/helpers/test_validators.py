@@ -1,6 +1,6 @@
 import pytest
 
-from helpers.validators import is_valid_int
+from src.helpers.validators import is_valid_int
 
 
 @pytest.mark.parametrize("input_data, expected_result", [
