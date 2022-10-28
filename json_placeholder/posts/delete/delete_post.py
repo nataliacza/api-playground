@@ -1,5 +1,3 @@
-from pprint import pprint
-
 import requests
 
 from helpers.validators import is_valid_int
