@@ -4,29 +4,24 @@ import requests
 
 from src.helpers.validators import is_valid_int
 
-json_url = "https://jsonplaceholder.typicode.com/posts"
 
-get_posts = requests.get(json_url)
+__posts_url = "https://jsonplaceholder.typicode.com/posts/"
 
-if get_posts.ok:
-    result_json = get_posts.json()
+def get_all_posts(items: int = None):
+    posts = requests.get(__posts_url)
 
-    items_per_result = input("How many results to show? ")
+    if posts.ok:
+        result_json = posts.json()
 
-    if is_valid_int(items_per_result):
-        pprint(result_json[:int(items_per_result)])
-    else:
-        print("Invalid input provided.")
+        if is_valid_int(str(items)):
+            return result_json[:int(items)]
+        elif items is None:
+            return result_json
+        return requests.codes["bad_request"]
 
-    print("\n")
-    user_id_input = input("Provide user id: ")
 
-    if is_valid_int(user_id_input):
-        user_posts = [item for item in result_json if item["userId"] == int(user_id_input)]
-        print(f"Results: {len(user_posts)} of {len(result_json)}")
-        pprint(user_posts)
-    else:
-        print("Invalid input provided.")
+# items_per_result = int(input("How many results to show? "))
+items_per_result = 5
 
-else:
-    print("Unable to get data from requested source.")
+action = get_all_posts(items_per_result)
+pprint(action)
