@@ -2,20 +2,21 @@ import requests
 
 from src.helpers.validators import is_valid_int
 
-print("==DELETE POST==")
-input_postId = input("Provide postId: ")
 
-url = f"https://jsonplaceholder.typicode.com/posts/"
+__posts_url = "https://jsonplaceholder.typicode.com/posts/"
 
-
-if is_valid_int(input_postId):
-    delete_url = "".join([url, input_postId])
-    request = requests.delete(url=delete_url)
-    if request.status_code == 200:
-        print("Success!")
-    elif request.status_code == 404:                # For this api delete will never return other code than 200
-        print(f"Not found: {request.status_code}")
+def delete_post_id(post_id: int):
+    if is_valid_int(str(post_id)):
+        delete_url = "".join([__posts_url, str(post_id)])
+        request = requests.delete(url=delete_url)
+        return request        # For this api delete will never return other code than 200
     else:
-        print(request.status_code)
-else:
-    print("Invalid id provided.")
+        return requests.codes["bad_request"]
+
+
+print("==DELETE POST==")
+# input_postId = int(input("Provide postId: "))
+input_postId = 5
+
+action = delete_post_id(input_postId)
+print(action)
