@@ -2,8 +2,8 @@ from pprint import pprint
 
 import requests
 
-from helpers.validators import is_valid_int
-from json_placeholder.my_dataclasses.posts import PatchPost
+from src.helpers.validators import is_valid_int
+from src.json_placeholder.my_dataclasses.posts import PatchPost
 
 print("==PATCH POST==")
 input_postId = input("Provide postId: ")

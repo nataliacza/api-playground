@@ -1,8 +1,8 @@
 import requests
 
-from helpers.exceptions import ValidationException
-from helpers.validators import user_exist, is_valid_int
-from json_placeholder.my_dataclasses.posts import NewPost
+from src.helpers.exceptions import ValidationException
+from src.helpers.validators import user_exist, is_valid_int
+from src.json_placeholder.my_dataclasses.posts import NewPost
 
 json_url = "https://jsonplaceholder.typicode.com/posts"
 

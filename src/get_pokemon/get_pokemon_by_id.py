@@ -1,7 +1,7 @@
 import requests
 from pprint import pprint
 
-from helpers.validators import is_valid_int
+from src.helpers.validators import is_valid_int
 
 pokemon_number = input("What is the Pokemon's ID? ")
 

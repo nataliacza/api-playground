@@ -2,7 +2,7 @@ from pprint import pprint
 
 import requests
 
-from helpers.validators import is_valid_int
+from src.helpers.validators import is_valid_int
 
 json_url = "https://jsonplaceholder.typicode.com/posts"
 

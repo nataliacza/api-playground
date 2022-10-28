@@ -1,6 +1,6 @@
 import requests
 
-from helpers.validators import is_valid_int
+from src.helpers.validators import is_valid_int
 
 print("==DELETE POST==")
 input_postId = input("Provide postId: ")
