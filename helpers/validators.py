@@ -2,11 +2,11 @@ import requests
 
 
 def is_valid_int(data: str) -> bool:
-    try:
-        isinstance(int(data), int)
-        return True
-    except ValueError:
-        return False
+    is_digit = data.strip().isdigit()
+    if is_digit:
+        if int(data) > 0:
+            return True
+    return False
 
 
 def user_exist(user_id: str) -> bool:
