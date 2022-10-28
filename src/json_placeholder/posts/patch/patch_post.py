@@ -1,6 +1,3 @@
-import http
-from pprint import pprint
-
 import requests
 
 from src.helpers.validators import is_valid_int
@@ -26,7 +23,7 @@ def update_post_by_id(post_id: int, title: str, body: str):
         return requests.codes["bad_request"]
 
 print("==PATCH POST==")
-# input_postId = input("Provide postId: ")
+# input_postId = int(input("Provide postId: "))
 # input_title = input("Provide title: ")
 # input_body = input("Provide body: ")
 input_postId = 5
@@ -35,3 +32,4 @@ input_body = "test"
 
 result = update_post_by_id(post_id=input_postId, title=input_title, body=input_body)
 print(result)
+# print(result.json())
