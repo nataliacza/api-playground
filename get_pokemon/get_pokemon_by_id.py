@@ -9,18 +9,20 @@ if is_valid_int(pokemon_number):
     url = f"https://pokeapi.co/api/v2/pokemon/{pokemon_number}"
     response = requests.get(url)
 
-    pokemon = response.json()
+    if response.ok:
+        pokemon = response.json()
 
-    print(f"You have selected pokemon ID: {pokemon.get('id')}, name: {pokemon.get('name').title()}.")
+        print(f"You have selected pokemon ID: {pokemon.get('id')}, name: {pokemon.get('name').title()}.")
 
-    print(f"Available properties to get: {list(pokemon)}.")
-    get_property = input("Select property: ")
+        print(f"Available properties to get: {list(pokemon)}.")
+        get_property = input("Select property: ")
 
-    if pokemon.get(get_property) is not None:
-        pprint(pokemon[get_property])
+        if pokemon.get(get_property) is not None:
+            pprint(pokemon[get_property])
+        else:
+            print(f"'{get_property}' property does not exist.")
     else:
-        print(f"'{get_property}' property does not exist.")
+        print(f"Id '{pokemon_number}' does not exist.")
 
 else:
-    print("Invalid ID provided. Integer required.")
-
+    print("Invalid ID provided. Positive integer required.")
