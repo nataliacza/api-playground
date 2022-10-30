@@ -14,3 +14,10 @@ def test_when_fraze_not_exist_returns_404():
     response = filter_posts_by_title(fraze)
 
     assert response == 404
+
+
+def test_when_fraze_exist_returns_4_elements():
+    fraze = "voluptates"
+    response = filter_posts_by_title(fraze)
+
+    assert len(response) == 4
